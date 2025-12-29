@@ -3,6 +3,7 @@ package ru.aston.homework4.service;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.aston.homework2.entities.User;
+import ru.aston.homework2.repository.UserRepository;
 import ru.aston.homework4.dto.request.UserCreateDTO;
 import ru.aston.homework4.dto.response.UserDTO;
 import ru.aston.homework4.exeption.UserNotFoundException;
@@ -15,7 +16,7 @@ import java.util.stream.Collectors;
 @Transactional(readOnly = true)
 public class UserService {
 
-    private final UserRepositoryJpa userRepository;
+    protected final UserRepositoryJpa userRepository;
 
     public UserService(UserRepositoryJpa userRepository) {
         this.userRepository = userRepository;
@@ -49,6 +50,7 @@ public class UserService {
                 .map(this::mapToResponse)
                 .orElseThrow(() -> new UserNotFoundException(id));
     }
+
 
     @Transactional
     public void delete(Long id) {
