@@ -3,7 +3,6 @@ package ru.aston.homework4.service;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.aston.homework2.entities.User;
-import ru.aston.homework2.repository.UserRepository;
 import ru.aston.homework4.dto.request.UserCreateDTO;
 import ru.aston.homework4.dto.response.UserDTO;
 import ru.aston.homework4.exeption.UserNotFoundException;
