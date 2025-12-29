@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Transactional(readOnly = true)
 public class UserService {
 
-    private final UserRepositoryJpa userRepository;
+    protected final UserRepositoryJpa userRepository;
 
     public UserService(UserRepositoryJpa userRepository) {
         this.userRepository = userRepository;
@@ -49,6 +49,7 @@ public class UserService {
                 .map(this::mapToResponse)
                 .orElseThrow(() -> new UserNotFoundException(id));
     }
+
 
     @Transactional
     public void delete(Long id) {
